@@ -8,6 +8,12 @@ using UniRx.Triggers;
 public class Bar : MonoBehaviour
 {
     [SerializeField]
+    private BarObject barObject;
+
+    [SerializeField]
+    private CameraController cameraController;
+
+    [SerializeField]
     private Vector3 rotate = new Vector3(-90, 0, 0);
 
     [SerializeField]
@@ -19,6 +25,16 @@ public class Bar : MonoBehaviour
     
     void Start()
     {
+        barObject.onTriggerEnterAction = (collider) =>
+        {
+            var component = collider.GetComponent<Sphere>();
+            if (component != null)
+            {
+                component.AddForce();
+                StartCoroutine(cameraController.playCameraNove());
+            }
+        };
+
         var nowRotate = transform.rotation.eulerAngles;
         var rotateDiff = rotate - nowRotate;
         var updateRotate = rotateDiff / rotateFrame;

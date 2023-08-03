@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 405783502}
   - component: {fileID: 405783503}
   m_Layer: 0
-  m_Name: BarObject
+  m_Name: BarParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -168,6 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d79fb689d2bc5d4189d03417808b37a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barObject: {fileID: 604873370}
+  cameraController: {fileID: 1010744371}
   rotate: {x: -90, y: 0, z: 0}
   rotateFrame: 60
 --- !u!1 &604873365
@@ -181,8 +183,10 @@ GameObject:
   - component: {fileID: 604873369}
   - component: {fileID: 604873368}
   - component: {fileID: 604873367}
+  - component: {fileID: 604873370}
+  - component: {fileID: 604873371}
   m_Layer: 0
-  m_Name: Bar
+  m_Name: BarObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -253,6 +257,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 405783502}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &604873370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604873365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c00d60ccbcbf6d4449a6560f91b20a19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &604873371
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604873365}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1010744369
 GameObject:
   m_ObjectHideFlags: 0
