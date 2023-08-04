@@ -11,15 +11,8 @@ public class CameraController : MonoBehaviour
     
     [SerializeField]
     private Sphere sphere = null;
-
     
-    void Start()
-    {
-
-        StartCoroutine(playCameraNove());
-    }
-
-    private IEnumerator playCameraNove()
+    public IEnumerator playCameraNove()
     {
         yield return new WaitForSeconds(0.5f);
 
@@ -31,13 +24,6 @@ public class CameraController : MonoBehaviour
             camera.transform.position = sphere.transform.position + offset;
         
         });
-        
         yield return null;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
