@@ -35,6 +35,13 @@ public class Bar : MonoBehaviour
             }
         };
 
+        StartCoroutine(BarMove());
+    }
+
+    private IEnumerator BarMove()
+    {
+        yield return new WaitForSeconds(1);
+        
         var nowRotate = transform.rotation.eulerAngles;
         var rotateDiff = rotate - nowRotate;
         var updateRotate = rotateDiff / rotateFrame;
@@ -50,4 +57,5 @@ public class Bar : MonoBehaviour
             }
         });
     }
+    
 }
