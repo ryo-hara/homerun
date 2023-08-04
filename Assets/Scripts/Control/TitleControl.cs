@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TitleControl : IGameControl
+public class TitleControl : MonoBehaviour, IGameControl
 {
     public IEnumerator Execute()
     {

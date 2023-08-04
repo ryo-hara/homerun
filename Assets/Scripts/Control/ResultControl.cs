@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class ResultControl : IGameControl
+public class ResultControl : MonoBehaviour, IGameControl
 {
     public IEnumerator Execute()
     {
