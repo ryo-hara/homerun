@@ -5,15 +5,13 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    private List<GameControl> controlList = new List<GameControl>();
+    private List<IGameControl> controlList = new List<IGameControl>();
 
     private void Awake()
     {
         controlList.Add(new TitleControl());
         controlList.Add(new GamePlayControl());
         controlList.Add(new ResultControl());
-        
-        
         StartCoroutine(ExecControl());
     }
     

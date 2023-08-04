@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class GamePlayControl : GameControl
+public class GamePlayControl : IGameControl
 {
     public IEnumerator Execute()
     {
