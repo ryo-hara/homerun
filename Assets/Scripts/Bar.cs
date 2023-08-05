@@ -25,23 +25,19 @@ public class Bar : MonoBehaviour
     
     void Start()
     {
-        barObject.onTriggerEnterAction = (collider) =>
-        {
-            var component = collider.GetComponent<Sphere>();
-            if (component != null)
-            {
-                component.AddForce();
-                StartCoroutine(cameraController.playCameraNove());
-            }
-        };
-
-        StartCoroutine(BarMove());
+        // barObject.onTriggerEnterAction = (collider) =>
+        // {
+        //     var component = collider.GetComponent<Sphere>();
+        //     if (component != null)
+        //     {
+        //         component.AddForce();
+        //         StartCoroutine(cameraController.playCameraNove());
+        //     }
+        // };
     }
 
-    private IEnumerator BarMove()
+    public void BarMove()
     {
-        yield return new WaitForSeconds(1);
-        
         var nowRotate = transform.rotation.eulerAngles;
         var rotateDiff = rotate - nowRotate;
         var updateRotate = rotateDiff / rotateFrame;

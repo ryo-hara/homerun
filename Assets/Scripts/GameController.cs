@@ -9,28 +9,24 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private List<GameObject> controlList = new List<GameObject>();
 
-    private List<GameObject> instantiateList = new List<GameObject>();
     private List<IGameControl> gameControlList = new List<IGameControl>();
     private void Awake()
     {
         foreach (var control in controlList)
         {
-            var instantiateObject = Instantiate(control, transform);
-            instantiateObject.SetActive(false);
-            gameControlList.Add(instantiateObject.GetComponent<IGameControl>());
-            instantiateList.Add(instantiateObject);
+            control.SetActive(false);
+            gameControlList.Add(control.GetComponent<IGameControl>());
         }
         StartCoroutine(ExecControl());
     }
     
     private IEnumerator ExecControl()
     {
-        for (int i = 0; i < instantiateList.Count; i++)
+        for (int i = 0; i < controlList.Count; i++)
         {
-            instantiateList[i].SetActive(true);
+            controlList[i].SetActive(true);
             yield return gameControlList[i].Execute();
-            instantiateList[i].SetActive(false);
+            controlList[i].SetActive(false);
         }
-        yield return null;
     }
 }
