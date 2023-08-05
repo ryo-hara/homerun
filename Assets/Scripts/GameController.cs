@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour
     {
         foreach (var control in controlList)
         {
-            var instantiateObject = Instantiate(control);
+            var instantiateObject = Instantiate(control, transform);
             instantiateObject.SetActive(false);
             gameControlList.Add(instantiateObject.GetComponent<IGameControl>());
             instantiateList.Add(instantiateObject);
