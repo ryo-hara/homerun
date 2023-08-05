@@ -31,6 +31,5 @@ public class GameController : MonoBehaviour
             yield return gameControlList[i].Execute();
             instantiateList[i].SetActive(false);
         }
-        yield return null;
     }
 }
