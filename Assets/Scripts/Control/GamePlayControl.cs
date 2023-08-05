@@ -15,7 +15,8 @@ public class GamePlayControl : MonoBehaviour, IGameControl
         foreach (var actionObject in gamePlayActionObjectList)
         {
             actionObject.SetActive(false);
-            gamePlayActionList.Add(actionObject.GetComponent<IGamePlayAction>());
+            var action = actionObject.GetComponent<IGamePlayAction>();
+            gamePlayActionList.Add(action);
         }
     }
 
