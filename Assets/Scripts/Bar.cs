@@ -21,19 +21,30 @@ public class Bar : MonoBehaviour
     
     private float ROTATE_INTERVAL = 1.0f;
 
+    private Subject<Unit> sphereColliderSubject = new Subject<Unit>();
+    public IObservable<Unit> SphereColliderObservable => sphereColliderSubject;
+
     private IDisposable disposable = null;
     
     void Start()
     {
-        // barObject.onTriggerEnterAction = (collider) =>
-        // {
-        //     var component = collider.GetComponent<Sphere>();
-        //     if (component != null)
-        //     {
-        //         component.AddForce();
-        //         StartCoroutine(cameraController.playCameraNove());
-        //     }
-        // };
+        barObject.onTriggerEnterAction = (collider) =>
+        {
+            var component = collider.GetComponent<Sphere>();
+            if (component != null)
+            {
+                sphereColliderSubject.OnNext(Unit.Default);
+            }
+        };
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        var component = GetComponent<Collider>().GetComponent<Sphere>();
+        if (component != null)
+        {
+            sphereColliderSubject.OnNext(Unit.Default);
+        }
     }
 
     public void BarMove()
