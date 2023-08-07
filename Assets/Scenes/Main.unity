@@ -194,6 +194,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6125344064964736410, guid: ba98ffeaeb0fd964dab9c9aa28629f9f, type: 3}
   m_PrefabInstance: {fileID: 469484235}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &596400060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 596400062}
+  - component: {fileID: 596400061}
+  m_Layer: 0
+  m_Name: MarkerGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &596400061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596400060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de4e893eea9f2da4da816564555e6e93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceMarkerPrefab: {fileID: 3344365627803564522, guid: 36af972092196f64797cb8005070f7de, type: 3}
+--- !u!4 &596400062
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596400060}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.058033, y: 3.8617988, z: 10.549791}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &656222765 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 147711004369144305, guid: f056d34561c12834b848a751a87775b9, type: 3}
@@ -1270,3 +1315,4 @@ SceneRoots:
   - {fileID: 1691691873}
   - {fileID: 2039121631}
   - {fileID: 1359137719}
+  - {fileID: 596400062}
