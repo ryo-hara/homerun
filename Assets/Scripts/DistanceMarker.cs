@@ -1,12 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+
+// TODO: 注視方向を最初に決めたりしてもよい
 
 public class DistanceMarker : MonoBehaviour
 {
     [SerializeField]
     private TextMeshPro distanceText = null;
+    [SerializeField]
+    private Transform textTransform = null;
+
+    private Vector3 textRotate = new Vector3(0, 180, 0);
 
     public void SetText(string text)
     {
@@ -18,8 +22,9 @@ public class DistanceMarker : MonoBehaviour
     {
         var position = Camera.main.transform.position;
         position.y = transform.position.y;
-        transform.LookAt (position);
-        
+        textTransform.LookAt (position);
+        transform.Rotate(textRotate);
+        // textTransform.rotation = textRotateQuaternion;
         // カメラよりも後ろに行ったら非表示
     }
 }

@@ -8,8 +8,7 @@ public class DistanceMarkerGenerator : MonoBehaviour
     [SerializeField]
     private GameObject distanceMarkerPrefab = null;
 
-    private readonly Vector3 MARKER_DISTANCE = new Vector3(-5,0, 10);
-    private const int MAX_MARKER_NUM = 10;
+    private const int MAX_MARKER_NUM = 100;
     private void Awake()
     {
         for (var i = 0; i < MAX_MARKER_NUM; i++)
