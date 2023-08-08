@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class FlyActionUI : MonoBehaviour
+public class GamePlayControlUI : MonoBehaviour
 {
     [SerializeField]
     private TextMeshProUGUI distanceText = null;

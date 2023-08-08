@@ -8,7 +8,7 @@ public class FlyAction : MonoBehaviour, IGamePlayAction
     
     // TODO: クラス図を書く
     [SerializeField]
-    private FlyActionUI flyActionUI = null;
+    private GamePlayControlUI gamePlayControlUI = null;
     
     [SerializeField]
     private Sphere sphere = null;
@@ -18,7 +18,7 @@ public class FlyAction : MonoBehaviour, IGamePlayAction
     {
         sphere.GetPositionObservable().Subscribe(position =>
         {
-            flyActionUI.SetDistance(position.z);
+            gamePlayControlUI.SetDistance(position.z);
         }).AddTo(this);
     }
 
