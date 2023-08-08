@@ -8,8 +8,7 @@ public class GamePlayControl : MonoBehaviour, IGameControl
     [SerializeField]
     private List<GameObject> gamePlayActionObjectList = new List<GameObject>();
     private List<IGamePlayAction> gamePlayActionList = new List<IGamePlayAction>();
-
-
+    
     private void Awake()
     {
         foreach (var actionObject in gamePlayActionObjectList)
