@@ -493,6 +493,10 @@ PrefabInstance:
       propertyPath: flyActionUI
       value: 
       objectReference: {fileID: 1112913199}
+    - target: {fileID: 2239292189161901408, guid: f056d34561c12834b848a751a87775b9, type: 3}
+      propertyPath: gamePlayControlUI
+      value: 
+      objectReference: {fileID: 1112913199}
     - target: {fileID: 4882666355705877267, guid: f056d34561c12834b848a751a87775b9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
