@@ -21,11 +21,15 @@ public class Sphere : MonoBehaviour
         }
     }
 
-
     public void AddForce()
     {
         var force = new Vector3(0,10,20);
         rigidbody.AddForce(force, ForceMode.Impulse);
+    }
+
+    public IObservable<Vector3> GetPositionObservable()
+    { 
+        return transform.ObserveEveryValueChanged(transform_ => transform_.position);
     }
     
 }
