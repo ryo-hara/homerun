@@ -21,9 +21,9 @@ public class Sphere : MonoBehaviour
         }
     }
 
-    public void AddForce()
+    public void AddForce(float magnification)
     {
-        var force = new Vector3(0,10,20);
+        var force = new Vector3(0,10,20) * magnification;
         rigidbody.AddForce(force, ForceMode.Impulse);
     }
 

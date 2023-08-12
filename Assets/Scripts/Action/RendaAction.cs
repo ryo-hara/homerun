@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using TMPro;
 using UniRx;
@@ -8,6 +7,8 @@ using UnityEngine.InputSystem;
 public class RendaAction : MonoBehaviour, IGamePlayAction
 {
 
+    [SerializeField]
+    private GameStore gameStore = null;
     [SerializeField]
     private TextMeshProUGUI rendaCunt = null; 
     
@@ -31,6 +32,7 @@ public class RendaAction : MonoBehaviour, IGamePlayAction
     {
         onInputReception = true;
         yield return new WaitForSeconds(5);
+        gameStore.SetRendaCount(inputCount);
     }
 
     private void Initialize()

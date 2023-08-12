@@ -238,6 +238,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6125344064964736410, guid: ba98ffeaeb0fd964dab9c9aa28629f9f, type: 3}
   m_PrefabInstance: {fileID: 469484235}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &502600136
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 502600138}
+  - component: {fileID: 502600137}
+  m_Layer: 0
+  m_Name: GameStore
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &502600137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502600136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9941a3fbc21ee93448fcea6cfeb74681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &502600138
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502600136}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 337.5, y: 301, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &596400060
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,6 +573,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1691691873}
     m_Modifications:
+    - target: {fileID: 199282328883323952, guid: f056d34561c12834b848a751a87775b9, type: 3}
+      propertyPath: gameStore
+      value: 
+      objectReference: {fileID: 502600137}
     - target: {fileID: 2239292189161901408, guid: f056d34561c12834b848a751a87775b9, type: 3}
       propertyPath: sphere
       value: 
@@ -589,6 +637,10 @@ PrefabInstance:
       propertyPath: sphere
       value: 
       objectReference: {fileID: 2021019116}
+    - target: {fileID: 7743138158721819391, guid: f056d34561c12834b848a751a87775b9, type: 3}
+      propertyPath: gameStore
+      value: 
+      objectReference: {fileID: 502600137}
     - target: {fileID: 7743138158721819391, guid: f056d34561c12834b848a751a87775b9, type: 3}
       propertyPath: cameraController
       value: 
@@ -1343,3 +1395,4 @@ SceneRoots:
   - {fileID: 1359137719}
   - {fileID: 596400062}
   - {fileID: 285978671}
+  - {fileID: 502600138}

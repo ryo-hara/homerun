@@ -7,8 +7,9 @@ using UnityEngine;
 public class BarMoveAction : MonoBehaviour, IGamePlayAction
 {
     [SerializeField]
+    private GameStore gameStore = null;
+    [SerializeField]
     private Bar bar = null;
-
     [SerializeField]
     private Sphere sphere = null;
 
@@ -41,7 +42,7 @@ public class BarMoveAction : MonoBehaviour, IGamePlayAction
 
     private IEnumerator ExecSphereMove()
     {
-        sphere.AddForce();
+        sphere.AddForce(gameStore.GetPowerMagnification());
         yield return new WaitForSeconds(0.5f);
         cameraController.PlayCameraMove();
 
