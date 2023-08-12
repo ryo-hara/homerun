@@ -32,7 +32,9 @@ public class GamePlayControl : MonoBehaviour, IGameControl
         for (int i = 0; i < gamePlayActionObjectList.Count; i++)
         {
             gamePlayActionObjectList[i].SetActive(true);
+            gamePlayActionList[i].Prepare();
             yield return gamePlayActionList[i].Execute();
+            gamePlayActionList[i].Disable();
             gamePlayActionObjectList[i].SetActive(false);
         }
     }
