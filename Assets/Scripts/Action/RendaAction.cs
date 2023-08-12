@@ -1,23 +1,25 @@
+using System;
 using System.Collections;
+using TMPro;
 using UniRx;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class RendaAction : MonoBehaviour, IGamePlayAction
 {
-    private Input input = null;
-    private CompositeDisposable disposables = new CompositeDisposable();
-    
 
+    [SerializeField]
+    private TextMeshProUGUI rendaCunt = null; 
+    
+    private Input input = null;
+    private bool onInputReception = false;
+    private int inputCount = 0;
+    
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     public void Prepare()
     {
-        input = GameObject.Find("Input").GetComponent<Input>();
-        input.GetKeyPressedObservable(Key.Space).Subscribe(_ =>
-        {
-            Debug.Log("InputSpaceS");
-        }).AddTo(disposables);
-
+        Initialize();
     }
 
     public void Disable()
@@ -27,9 +29,34 @@ public class RendaAction : MonoBehaviour, IGamePlayAction
 
     public IEnumerator Execute()
     {
-        // Note: 連打処理を入れる
-        Debug.Log("RendaAction");
-        yield return new WaitForSeconds(100);
+        onInputReception = true;
+        yield return new WaitForSeconds(5);
     }
 
+    private void Initialize()
+    {
+        onInputReception = false;
+        inputCount = 0;
+        rendaCunt.text = "0 count";
+
+        input = GameObject.Find("Input").GetComponent<Input>();
+        input.GetKeyPressedObservable(Key.A).Subscribe(_ =>
+        {
+            UpdateCount();
+        }).AddTo(disposables);
+        
+        input.GetKeyPressedObservable(Key.L).Subscribe(_ =>
+        {
+            UpdateCount();
+        }).AddTo(disposables);
+    }
+
+    private void UpdateCount()
+    {
+        if (onInputReception)
+        {
+            inputCount++;
+            rendaCunt.text = inputCount + " count";
+        }
+    }
 }
