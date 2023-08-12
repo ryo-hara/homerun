@@ -17,12 +17,19 @@ public class BarMoveAction : MonoBehaviour, IGamePlayAction
 
     private bool isSphereOnFloor = false;
 
-    private void Awake()
+    private CompositeDisposable disposables = new CompositeDisposable();
+
+    public void Prepare()
     {
         bar.SphereColliderObservable.Subscribe(_ =>
         {
             StartCoroutine(ExecSphereMove());
-        }).AddTo(this);
+        }).AddTo(disposables);
+    }
+
+    public void Disable()
+    {
+        disposables.Dispose();
     }
 
     public IEnumerator Execute()
