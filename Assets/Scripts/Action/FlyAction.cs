@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using UniRx;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 public class FlyAction : MonoBehaviour, IGamePlayAction
 {
@@ -13,13 +15,20 @@ public class FlyAction : MonoBehaviour, IGamePlayAction
     [SerializeField]
     private Sphere sphere = null;
 
+    private Input input = null;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
-    private void Awake()
+    public void Prepare()
     {
         sphere.GetPositionObservable().Subscribe(position =>
         {
             gamePlayControlUI.SetDistance(position.z);
-        }).AddTo(this);
+        }).AddTo(disposables);
+    }
+
+    public void Disable()
+    {
+        disposables.Dispose();
     }
 
     public IEnumerator Execute()
