@@ -625,10 +625,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GamePlayControl
       objectReference: {fileID: 0}
-    - target: {fileID: 7111227859687642870, guid: f056d34561c12834b848a751a87775b9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7743138158721819391, guid: f056d34561c12834b848a751a87775b9, type: 3}
       propertyPath: bar
       value: 
