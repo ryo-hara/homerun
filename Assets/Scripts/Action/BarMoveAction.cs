@@ -16,6 +16,9 @@ public class BarMoveAction : MonoBehaviour, IGamePlayAction
     [SerializeField]
     private CameraController cameraController = null;
 
+    [SerializeField]
+    private GamePlayControlUI gamePlayControlUI = null;
+
     private bool isSphereOnFloor = false;
 
     private CompositeDisposable disposables = new CompositeDisposable();
@@ -47,6 +50,12 @@ public class BarMoveAction : MonoBehaviour, IGamePlayAction
         cameraController.PlayCameraMove();
 
         var collisionFloor = false;
+        
+        sphere.GetPositionObservable().Subscribe(position =>
+        {
+            gamePlayControlUI.SetDistance(position.z);
+        }).AddTo(disposables);
+
         sphere.CollisionFloorObservable.Subscribe(_ =>
         {
             collisionFloor = true;

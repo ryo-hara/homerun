@@ -3,6 +3,12 @@ using UnityEngine;
 public class GameStore : MonoBehaviour
 {
     private int rendaCount = 0;
+    private float clickTiming = 0;
+
+    public void SetClickTiming(float timing)
+    {
+        clickTiming = timing;
+    }
 
     public void SetRendaCount(int count)
     {
@@ -11,6 +17,6 @@ public class GameStore : MonoBehaviour
 
     public float GetPowerMagnification()
     {
-        return (float)rendaCount / 30;
+        return clickTiming * (float)rendaCount / 30;
     }
 }
