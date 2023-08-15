@@ -11,13 +11,14 @@ public class TimingActionUI : MonoBehaviour
 
     private CompositeDisposable disposables = new CompositeDisposable();
 
-    private Vector3 moveDistance = new Vector3(1.3f, 0, 0);
+    private Vector3 moveDistance = new Vector3(20.0f, 0, 0);
     private int direction = 1; // 1 ~ -1
 
     private const float BAR_SIZE = 300.0f;
-    public const float HALF_BAR_SIZE = BAR_SIZE / 2;
+    private const float HALF_BAR_SIZE = BAR_SIZE / 2;
     private const float HALF_BAR_SIZE_SQUARE = HALF_BAR_SIZE * HALF_BAR_SIZE;
 
+    private bool isBarMove = true;
     public float GetBarPositionFromLeftEdge()
     {
         var posX = timingBarRectTransform.localPosition.x;
@@ -33,8 +34,14 @@ public class TimingActionUI : MonoBehaviour
     
     public void Initialize()
     {
+        isBarMove = true;
         this.FixedUpdateAsObservable().Subscribe(_ =>
         {
+            if (!isBarMove)
+            {
+                return;
+            }
+
             timingBarRectTransform.localPosition += moveDistance * direction;
             var posX = timingBarRectTransform.localPosition.x;
             var posXSquare = posX * posX;
@@ -44,8 +51,11 @@ public class TimingActionUI : MonoBehaviour
                 direction *= -1;
             }
         });
+    }
 
-        
+    public void StopBar()
+    {
+        isBarMove = false;
     }
 
     public void Finalize()

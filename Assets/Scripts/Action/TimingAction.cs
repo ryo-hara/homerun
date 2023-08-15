@@ -23,6 +23,7 @@ public class TimingAction : MonoBehaviour, IGamePlayAction
         input = GameObject.Find("Input").GetComponent<Input>();
         input.GetKeyPressedObservable(Key.Space).Subscribe(_ =>
         {
+            timingActionUI.StopBar();
             var barPosition = timingActionUI.GetBarPositionFromLeftEdge();
             var timingPower = barPosition / 30.0f;
             gameStore.SetClickTiming(timingPower);
