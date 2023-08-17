@@ -11,9 +11,6 @@ public class Bar : MonoBehaviour
     private BarObject barObject;
 
     [SerializeField]
-    private CameraController cameraController;
-
-    [SerializeField]
     private Vector3 rotate = new Vector3(-90, 0, 0);
 
     [SerializeField]
