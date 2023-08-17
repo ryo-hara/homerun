@@ -632,7 +632,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barObject: {fileID: 922762242}
-  cameraController: {fileID: 1237552987}
   rotate: {x: -90, y: 0, z: 0}
   rotateFrame: 60
 --- !u!4 &976785589
@@ -651,6 +650,17 @@ Transform:
   - {fileID: 922762246}
   m_Father: {fileID: 1359137719}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1052239489 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5917221798199259631, guid: f056d34561c12834b848a751a87775b9, type: 3}
+  m_PrefabInstance: {fileID: 1112913196}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1112913196
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -663,6 +673,10 @@ PrefabInstance:
       propertyPath: gameStore
       value: 
       objectReference: {fileID: 502600137}
+    - target: {fileID: 199282328883323952, guid: f056d34561c12834b848a751a87775b9, type: 3}
+      propertyPath: rendaActionUI
+      value: 
+      objectReference: {fileID: 1347262498}
     - target: {fileID: 2239292189161901408, guid: f056d34561c12834b848a751a87775b9, type: 3}
       propertyPath: sphere
       value: 
@@ -749,7 +763,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8770030354389611229, guid: f056d34561c12834b848a751a87775b9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1598998865}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5754964235582725367, guid: f056d34561c12834b848a751a87775b9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1347262498}
   m_SourcePrefab: {fileID: 100100000, guid: f056d34561c12834b848a751a87775b9, type: 3}
 --- !u!4 &1112913197 stripped
 Transform:
@@ -803,6 +820,24 @@ Transform:
   - {fileID: 2021019121}
   m_Father: {fileID: 1359137719}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1347262493 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5754964235582725367, guid: f056d34561c12834b848a751a87775b9, type: 3}
+  m_PrefabInstance: {fileID: 1112913196}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1347262498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347262493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ad07884c92985b4fa78755c93f7fa85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rendaCount: {fileID: 1052239489}
 --- !u!1 &1359137718
 GameObject:
   m_ObjectHideFlags: 0
