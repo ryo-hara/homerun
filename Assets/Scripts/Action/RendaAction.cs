@@ -10,7 +10,7 @@ public class RendaAction : MonoBehaviour, IGamePlayAction
     [SerializeField]
     private GameStore gameStore = null;
     [SerializeField]
-    private TextMeshProUGUI rendaCunt = null; 
+    private RendaActionUI rendaActionUI = null; 
     
     private Input input = null;
     private bool onInputReception = false;
@@ -39,7 +39,8 @@ public class RendaAction : MonoBehaviour, IGamePlayAction
     {
         onInputReception = false;
         inputCount = 0;
-        rendaCunt.text = "0 count";
+        
+        rendaActionUI.Initialize();
 
         input = GameObject.Find("Input").GetComponent<Input>();
         input.GetKeyPressedObservable(Key.A).Subscribe(_ =>
@@ -58,7 +59,7 @@ public class RendaAction : MonoBehaviour, IGamePlayAction
         if (onInputReception)
         {
             inputCount++;
-            rendaCunt.text = inputCount + " count";
+            rendaActionUI.UpdateCount(inputCount);
         }
     }
 }

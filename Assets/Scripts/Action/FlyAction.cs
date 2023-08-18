@@ -8,7 +8,6 @@ using UnityEngine.InputSystem.Controls;
 public class FlyAction : MonoBehaviour, IGamePlayAction
 {
     
-    // TODO: クラス図を書く
     [SerializeField]
     private GamePlayControlUI gamePlayControlUI = null;
     
