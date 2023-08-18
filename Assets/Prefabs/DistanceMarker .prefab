@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8548262600845852197}
   - component: {fileID: 8934224097493937519}
   - component: {fileID: 864084670515104684}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 7976863957095583661}
   - component: {fileID: 7317886557822293924}
   - component: {fileID: 3918076411738380271}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4081652596205808483}
   - component: {fileID: 2628982407090662760}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 'DistanceMarker '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
