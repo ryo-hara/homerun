@@ -7,17 +7,7 @@ using UnityEngine;
 public class BarMoveAction : MonoBehaviour, IGamePlayAction
 {
     [SerializeField]
-    private GameStore gameStore = null;
-    [SerializeField]
     private Bar bar = null;
-    [SerializeField]
-    private Sphere sphere = null;
-
-    [SerializeField]
-    private CameraController cameraController = null;
-
-    [SerializeField]
-    private GamePlayControlUI gamePlayControlUI = null;
 
     private bool isSphereOnFloor = false;
 
@@ -25,10 +15,6 @@ public class BarMoveAction : MonoBehaviour, IGamePlayAction
 
     public void Prepare()
     {
-        bar.SphereColliderObservable.Subscribe(_ =>
-        {
-            StartCoroutine(ExecSphereMove());
-        }).AddTo(disposables);
     }
 
     public void Disable()
@@ -40,29 +26,12 @@ public class BarMoveAction : MonoBehaviour, IGamePlayAction
     {
         yield return new WaitForSeconds(1);
         bar.BarMove();
-        yield return new WaitUntil(() => isSphereOnFloor);
-    }
-
-    private IEnumerator ExecSphereMove()
-    {
-        sphere.AddForce(gameStore.GetPowerMagnification());
-        yield return new WaitForSeconds(0.5f);
-        cameraController.PlayCameraMove();
-
-        var collisionFloor = false;
-        
-        sphere.GetPositionObservable().Subscribe(position =>
+        var onEnterCollisionSphere = false;
+        bar.SphereColliderObservable.Subscribe(_ =>
         {
-            gamePlayControlUI.SetDistance(position.z);
+            onEnterCollisionSphere = true;
         }).AddTo(disposables);
 
-        sphere.CollisionFloorObservable.Subscribe(_ =>
-        {
-            collisionFloor = true;
-        });
-
-        yield return new WaitUntil(() => collisionFloor);
-        yield return new WaitForSeconds(0.5f);
-        isSphereOnFloor = true;
+        yield return new WaitUntil(() => onEnterCollisionSphere);
     }
 }

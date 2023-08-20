@@ -14,8 +14,12 @@ public class FlyAction : MonoBehaviour, IGamePlayAction
     [SerializeField]
     private Sphere sphere = null;
 
+    [SerializeField]
+    private CameraController cameraController = null;
+
     private Input input = null;
     private CompositeDisposable disposables = new CompositeDisposable();
+    private bool isSphereOnFloor = false;
 
     public void Prepare()
     {
@@ -32,8 +36,24 @@ public class FlyAction : MonoBehaviour, IGamePlayAction
 
     public IEnumerator Execute()
     {
-        // Note: ボールを飛ばす処理を入れる
         Debug.Log("FlyAction");
+        yield return ExecSphereMove();
         yield return new WaitForSeconds(100);
+    }
+    
+    private IEnumerator ExecSphereMove()
+    {
+        yield return new WaitForSeconds(0.5f);
+        cameraController.PlayCameraMove();
+
+        var collisionFloor = false;
+
+        sphere.CollisionFloorObservable.Subscribe(_ =>
+        {
+            collisionFloor = true;
+        });
+
+        yield return new WaitUntil(() => collisionFloor);
+        yield return new WaitForSeconds(0.5f);
     }
 }
