@@ -8,6 +8,8 @@ public class RendaAction : MonoBehaviour, IGamePlayAction
 {
 
     [SerializeField]
+    private GamePlayControlUI gamePlayControlUI = null;
+    [SerializeField]
     private GameStore gameStore = null;
     [SerializeField]
     private RendaActionUI rendaActionUI = null; 
@@ -25,13 +27,15 @@ public class RendaAction : MonoBehaviour, IGamePlayAction
 
     public void Disable()
     {
+        gameStore.StopTimerCount();
         disposables.Dispose();
     }
 
     public IEnumerator Execute()
     {
         onInputReception = true;
-        yield return new WaitForSeconds(5);
+        yield return new WaitUntil( () => gameStore.isTimeOver());
+        gamePlayControlUI.SetRemainingTimeTextActive(false);
         gameStore.SetRendaCount(inputCount);
     }
 
@@ -41,6 +45,7 @@ public class RendaAction : MonoBehaviour, IGamePlayAction
         inputCount = 0;
         
         rendaActionUI.Initialize();
+        InitializeRemainingTimeUI();
 
         input = GameObject.Find("Input").GetComponent<Input>();
         input.GetKeyPressedObservable(Key.A).Subscribe(_ =>
@@ -51,6 +56,14 @@ public class RendaAction : MonoBehaviour, IGamePlayAction
         input.GetKeyPressedObservable(Key.L).Subscribe(_ =>
         {
             UpdateCount();
+        }).AddTo(disposables);
+    }
+    
+    private void InitializeRemainingTimeUI()
+    {
+        gameStore.RemainingTimeObservable.Subscribe(time =>
+        {
+            gamePlayControlUI.SetRemainingTime(time);
         }).AddTo(disposables);
     }
 
