@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 public class TimingAction : MonoBehaviour, IGamePlayAction
 {
     [SerializeField]
+    private GamePlayControlUI gamePlayControlUI = null;
+    [SerializeField]
     private TimingActionUI timingActionUI = null;
     [SerializeField]
     private GameStore gameStore = null;
@@ -17,9 +19,25 @@ public class TimingAction : MonoBehaviour, IGamePlayAction
 
     public void Prepare()
     {
-        isClicked = false;
+        gameStore.StartTimerCount();
+
+        InitializeUI();
+        InitializeInput();
+    }
+
+    private void InitializeUI()
+    {
         timingActionUI.Initialize();
-        
+
+        gameStore.RemainingTimeObservable.Subscribe(time =>
+        {
+            gamePlayControlUI.SetRemainingTime(time);
+        }).AddTo(disposables);
+    }
+
+    private void InitializeInput()
+    {
+        isClicked = false;
         input = GameObject.Find("Input").GetComponent<Input>();
         input.GetKeyPressedObservable(Key.Space).Subscribe(_ =>
         {
