@@ -8,8 +8,9 @@ public class GameStore : MonoBehaviour
     private int rendaCount = 0;
     private float clickTiming = 0;
 
-    private float MAX_REMAINING_TIME = 20.0f;
+    private float MAX_REMAINING_TIME = 10.0f;
     private float timeCount = 0.0f;
+    private float RemainingTime => MAX_REMAINING_TIME - timeCount;
     private Subject<float> remainingTimeSunject = new Subject<float>();
     public IObservable<float> RemainingTimeObservable => remainingTimeSunject;
 
@@ -39,9 +40,13 @@ public class GameStore : MonoBehaviour
         disposable = this.UpdateAsObservable().Subscribe(_ =>
         {
             timeCount += Time.deltaTime;
-            var remainingTime = MAX_REMAINING_TIME - timeCount;
-            remainingTimeSunject.OnNext(remainingTime);
+            remainingTimeSunject.OnNext(RemainingTime);
         });
+    }
+
+    public bool isTimeOver()
+    {
+        return RemainingTime <= 0.0f;
     }
 
     public void StopTimerCount()

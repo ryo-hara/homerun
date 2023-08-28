@@ -579,7 +579,7 @@ PrefabInstance:
     - target: {fileID: 199282328883323952, guid: f056d34561c12834b848a751a87775b9, type: 3}
       propertyPath: gamePlayControlUI
       value: 
-      objectReference: {fileID: 1112913198}
+      objectReference: {fileID: 1112913202}
     - target: {fileID: 772990215930899267, guid: f056d34561c12834b848a751a87775b9, type: 3}
       propertyPath: m_Camera
       value: 
@@ -640,6 +640,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6934074641488837046, guid: f056d34561c12834b848a751a87775b9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6951658486198941078, guid: f056d34561c12834b848a751a87775b9, type: 3}
       propertyPath: m_Name
       value: GamePlayControl
@@ -655,7 +659,7 @@ PrefabInstance:
     - target: {fileID: 8608954900202540086, guid: f056d34561c12834b848a751a87775b9, type: 3}
       propertyPath: gamePlayControlUI
       value: 
-      objectReference: {fileID: 1112913198}
+      objectReference: {fileID: 1112913202}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -666,7 +670,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4882666355705877267, guid: f056d34561c12834b848a751a87775b9, type: 3}
   m_PrefabInstance: {fileID: 1112913196}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1112913198 stripped
+--- !u!114 &1112913202 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7657481670392587621, guid: f056d34561c12834b848a751a87775b9, type: 3}
   m_PrefabInstance: {fileID: 1112913196}

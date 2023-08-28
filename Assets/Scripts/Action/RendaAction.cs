@@ -34,7 +34,8 @@ public class RendaAction : MonoBehaviour, IGamePlayAction
     public IEnumerator Execute()
     {
         onInputReception = true;
-        yield return new WaitForSeconds(5);
+        yield return new WaitUntil( () => gameStore.isTimeOver());
+        gamePlayControlUI.SetRemainingTimeTextActive(false);
         gameStore.SetRendaCount(inputCount);
     }
 

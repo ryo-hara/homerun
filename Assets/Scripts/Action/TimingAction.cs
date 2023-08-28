@@ -29,6 +29,7 @@ public class TimingAction : MonoBehaviour, IGamePlayAction
     {
         timingActionUI.Initialize();
 
+        gamePlayControlUI.SetRemainingTimeTextActive(true);
         gameStore.RemainingTimeObservable.Subscribe(time =>
         {
             gamePlayControlUI.SetRemainingTime(time);
@@ -57,9 +58,8 @@ public class TimingAction : MonoBehaviour, IGamePlayAction
     
     public IEnumerator Execute()
     {
-        yield return new WaitForSeconds(1);
-        yield return new WaitUntil(() => isClicked);
-        yield return new WaitForSeconds(1);
+        // yield return new WaitForSeconds(1);
+        yield return new WaitUntil(() => isClicked || gameStore.isTimeOver());
     }
 }
 

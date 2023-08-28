@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -17,6 +18,13 @@ public class GamePlayControlUI : MonoBehaviour
 
     public void SetRemainingTime(float time)
     {
-        remainingTimeText.text = time.ToString("F2");
+        // Note: 0秒未満が入るケースがあるので、0以下を出さないようにする
+        remainingTimeText.text = Math.Max(time, 0.0f).ToString("F2");
+    }
+    
+    public void SetRemainingTimeTextActive(bool active)
+    {
+        // Note: 0秒未満が入るケースがあるので、0以下を出さないようにする
+        remainingTimeText.gameObject.SetActive(active);
     }
 }
